@@ -1,5 +1,5 @@
 <template>
-        <form method="post" @submit="verificarForm" id="form">
+        <form method="post" @submit.prevent="verificarForm" id="form">
             <div class="form__input">
                 <input type="text" id="id_videoURL" v-model="videoURL" placeholder="Ingresa la URL del video" required />
             </div>
@@ -12,8 +12,7 @@
 <script lang="ts">
 export default {
     methods: {
-        verificarForm: async function (e: HTMLFormElement) {
-            e.preventDefault();
+        verificarForm: async function () {
             const input = document.getElementById("id_videoURL") as HTMLInputElement;
             if ((this as any).videoURL.length < 6 || (this as any).videoURL.includes("youtube.com") == false) {
                 input.style.borderColor = "red";
