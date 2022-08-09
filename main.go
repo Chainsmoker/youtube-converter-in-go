@@ -46,9 +46,9 @@ func main() {
 }
 
 func download_video(video string){
-	// Creamos una instancia de exec.Command
+    // Creamos una instancia de exec.Command
     cmd := exec.Command("python", "-m", "youtube_dl", "--audio-format", "mp3", "--no-check-certificate", "-x", "-g", video)
-	// Ejecutamos el comando
+    // Ejecutamos el comando
     stdout, err := cmd.StdoutPipe()
     if err != nil {
         panic(err)
@@ -61,18 +61,18 @@ func download_video(video string){
     if err != nil {
         panic(err)
     }
-	// Mandamos las salidas a una función para obtener la url de descarga
+    // Mandamos las salidas a una función para obtener la url de descarga
     copyOutput(stdout)
     copyOutput(stderr)
     cmd.Wait()
 }
 
 func copyOutput(r io.Reader) {
-	// Creamos un scanner para leer la salida del comando
-	scanner := bufio.NewScanner(r)
-	// Iteramos sobre la salida del comando
+    // Creamos un scanner para leer la salida del comando
+    scanner := bufio.NewScanner(r)
+    // Iteramos sobre la salida del comando
     for scanner.Scan() {
-		// Guardamos la url de descarga en la variable global
-		downloadURL = scanner.Text()
+	// Guardamos la url de descarga en la variable global
+	downloadURL = scanner.Text()
     }
 }
