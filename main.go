@@ -28,7 +28,7 @@ func main() {
 	// Configuramos el CORS
 	app.Use(cors.New())
 	// Configuramos los archivos estáticos
-	app.Static("/", "./public")
+	app.Static("/", "./frontend/dist")
 	// Configuramos una ruta para obtener el video
 	app.Post("/download", func(c *fiber.Ctx) error {
 			// Obtenemos el video en formato JSON, y lo convertimos a un struct
