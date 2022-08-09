@@ -20,7 +20,8 @@ export default {
                 alert('La URL no es valida, incluye el dominio "youtube.com"');
             } else {
                 input.style.borderColor = "green";
-                const response = await fetch('http://localhost:3000/download', {
+
+                const response = await fetch('/download', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
