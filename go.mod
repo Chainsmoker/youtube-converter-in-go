@@ -1,6 +1,6 @@
 module github.com/ConceptSec/youtube-downloader-go
 
-go 1.23
+go 1.12
 
 require github.com/gofiber/fiber/v2 v2.36.0
 
