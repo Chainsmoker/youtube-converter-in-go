@@ -47,7 +47,7 @@ func main() {
 
 func download_video(video string){
 	// Creamos una instancia de exec.Command
-    cmd := exec.Command("python", "-m", "youtube_dl", "-x", "-g", video)
+    cmd := exec.Command("python", "-m", "youtube_dl", "--audio-format", "mp3", "--no-check-certificate", "-x", "-g", video)
 	// Ejecutamos el comando
     stdout, err := cmd.StdoutPipe()
     if err != nil {
